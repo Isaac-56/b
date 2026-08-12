@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import type { CSSProperties } from "react";
 import { Project, projects } from "@/lib/projects";
 import { cleanText } from "@/lib/clean-text";
 import { Reveal } from "./reveal";
@@ -13,6 +13,11 @@ export function CaseStudyPage({ project }: { project: Project }) {
   const nextProject =
     projects[(currentIndex + 1) % projects.length];
 
+  const externalLinkLabel =
+    project.presentation === "mobile"
+      ? "View on Google Play"
+      : "Visit live website";
+
   return (
     <main
       className="case-study"
@@ -20,16 +25,16 @@ export function CaseStudyPage({ project }: { project: Project }) {
         {
           "--accent": project.accent,
           "--surface": project.surface,
-        } as React.CSSProperties
+        } as CSSProperties
       }
     >
       <SiteHeader />
 
       <section className="case-hero page-shell">
-        <Link href="/#work" className="back-link">
+        <a href="/#work" className="back-link">
           <span aria-hidden="true">&larr;</span>
           <span>All work</span>
-        </Link>
+        </a>
 
         <div className="case-hero__heading">
           <p className="kicker">
@@ -45,7 +50,6 @@ export function CaseStudyPage({ project }: { project: Project }) {
           <dl className="case-meta">
             <div className="case-meta__row">
               <dt>Role</dt>
-
               <dd>{cleanText(project.role)}</dd>
             </div>
 
@@ -184,14 +188,18 @@ export function CaseStudyPage({ project }: { project: Project }) {
             ))}
           </div>
 
-          {project.figma && (
+          {project.website && (
             <a
               className="button button--outline"
-              href={project.figma}
+              href={project.website}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label={`${externalLinkLabel} for ${cleanText(
+                project.title,
+              )}`}
             >
-              View the full Figma work
+              {externalLinkLabel}
+
               <span
                 className="button__arrow"
                 aria-hidden="true"
@@ -203,10 +211,13 @@ export function CaseStudyPage({ project }: { project: Project }) {
         </Reveal>
       </section>
 
-      <Link
+      <a
         href={`/work/${nextProject.slug}`}
         className="next-project"
         style={{ background: nextProject.surface }}
+        aria-label={`View next project: ${cleanText(
+          nextProject.title,
+        )}`}
       >
         <span>Next project</span>
 
@@ -220,7 +231,7 @@ export function CaseStudyPage({ project }: { project: Project }) {
         >
           &rarr;
         </span>
-      </Link>
+      </a>
 
       <footer className="site-footer page-shell">
         <p>Bemnet Seifu / Product Designer</p>

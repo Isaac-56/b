@@ -21,7 +21,7 @@ export type Project = {
     layout?: "wide" | "tall";
     position?: string;
   }[];
-  figma?: string;
+  website?: string;
   presentation?: "web" | "mobile";
 };
 
@@ -53,7 +53,10 @@ export const projects: Project[] = [
     accent: "#f88732",
     surface: "#fdebdc",
     hero: "/projects/tala-match.png",
-    cards: ["/projects/tala-match.png", "/projects/tala-calls.png"],
+    cards: [
+      "/projects/tala-match.png",
+      "/projects/tala-calls.png",
+    ],
     gallery: [
       {
         src: "/projects/tala-auth.png",
@@ -81,8 +84,7 @@ export const projects: Project[] = [
         layout: "wide",
       },
     ],
-    figma:
-      "https://www.figma.com/design/w2mIoVYHwaaLGSrcEjsEO7/Tala-Thrive-design-kit?node-id=17-543&p=f&t=92s86c9BposksNO6-0",
+    website: "https://www.talathrive.com/",
   },
 
   {
@@ -109,11 +111,17 @@ export const projects: Project[] = [
       "Communication & meetings",
       "Product QA",
     ],
-    results: ["3 user experiences", "Landing page → working platform"],
+    results: [
+      "3 user experiences",
+      "Landing page → working platform",
+    ],
     accent: "#2ab9b3",
     surface: "#dff5f2",
     hero: "/projects/uma-video.png",
-    cards: ["/projects/uma-video.png", "/projects/uma-admin.png"],
+    cards: [
+      "/projects/uma-video.png",
+      "/projects/uma-admin.png",
+    ],
     gallery: [
       {
         src: "/projects/uma-video.png",
@@ -142,8 +150,7 @@ export const projects: Project[] = [
         position: "top",
       },
     ],
-    figma:
-      "https://www.figma.com/design/mv1k2dG8MEqAMd2qUvh7N8/UMA-Box?node-id=53-915&t=q6lDkH5ZF5MdCtaJ-0",
+    website: "https://theumabox.com/",
   },
 
   {
@@ -170,7 +177,10 @@ export const projects: Project[] = [
       "Prayer & affirmation experiences",
       "Final mobile product",
     ],
-    results: ["Investor-approved direction", "Android app launched"],
+    results: [
+      "Investor-approved direction",
+      "Android app launched",
+    ],
     accent: "#7564f5",
     surface: "#ebe9ff",
     hero: "/projects/givethanks-feed.png",
@@ -207,8 +217,7 @@ export const projects: Project[] = [
         position: "top",
       },
     ],
-    figma:
-      "https://www.figma.com/design/NDjI8hTF831DiSZuXKLYiV/Give-Thanks?node-id=2-3&t=nr0Lc0nRo6bpemmY-0",
+    website: "https://play.google.com/store/apps/details?id=com.givethanks.world",
   },
 
   {
@@ -235,7 +244,10 @@ export const projects: Project[] = [
       "Mobile-first interface",
       "Product QA",
     ],
-    results: ["Buyer & seller journeys", "Mobile-first marketplace"],
+    results: [
+      "Buyer & seller journeys",
+      "Mobile-first marketplace",
+    ],
     accent: "#0878ff",
     surface: "#e2efff",
     hero: "/projects/ticklish-listings.png",
@@ -273,8 +285,7 @@ export const projects: Project[] = [
         position: "top",
       },
     ],
-    figma:
-      "https://www.figma.com/design/9HjUd934rs9vrrcjo1Blsk/TICKLISH?node-id=44-11&t=vcnlBoPwx5oV51LE-0",
+    website: "https://tick-lish.com/",
   },
 ];
 

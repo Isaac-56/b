@@ -7,41 +7,81 @@ export function HeroTurntable() {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    if (!audioRef.current) return;
+    const audio = audioRef.current;
 
-    audioRef.current.volume = 0.45;
-    audioRef.current.loop = true;
+    if (!audio) return;
+
+    audio.volume = 0.45;
+    audio.loop = true;
+    audio.preload = "auto";
+
+    /*
+     * Browsers may block audio before the visitor has interacted
+     * with the page. A first interaction anywhere on the page
+     * prepares the audio so later mouse hover can play it.
+     */
+    const unlockAudio = async () => {
+      try {
+        const oldVolume = audio.volume;
+
+        audio.volume = 0;
+        await audio.play();
+        audio.pause();
+        audio.currentTime = 0;
+        audio.volume = oldVolume;
+      } catch {
+        // Browser may still enforce its own autoplay policy.
+      }
+    };
+
+    window.addEventListener("pointerdown", unlockAudio, {
+      once: true,
+    });
+
+    window.addEventListener("keydown", unlockAudio, {
+      once: true,
+    });
+
+    return () => {
+      window.removeEventListener("pointerdown", unlockAudio);
+      window.removeEventListener("keydown", unlockAudio);
+    };
   }, []);
 
-  const handleStart = async () => {
+  const handleMouseEnter = async () => {
     setIsActive(true);
 
-    if (!audioRef.current) return;
+    const audio = audioRef.current;
+
+    if (!audio) return;
 
     try {
-      await audioRef.current.play();
-    } catch (error) {
-      console.warn("Audio playback may need a first user interaction.", error);
+      audio.currentTime = 0;
+      await audio.play();
+    } catch {
+      /*
+       * The record animation still starts on hover even if
+       * the browser blocks first-hover audio.
+       */
     }
   };
 
-  const handleStop = () => {
+  const handleMouseLeave = () => {
     setIsActive(false);
 
-    if (!audioRef.current) return;
+    const audio = audioRef.current;
 
-    audioRef.current.pause();
-    audioRef.current.currentTime = 0;
+    if (!audio) return;
+
+    audio.pause();
+    audio.currentTime = 0;
   };
 
   return (
     <div
       className={`hero-turntable ${isActive ? "is-active" : ""}`}
-      onMouseEnter={handleStart}
-      onMouseLeave={handleStop}
-      onFocus={handleStart}
-      onBlur={handleStop}
-      tabIndex={0}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       aria-label="Interactive record player"
     >
       <audio
