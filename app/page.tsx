@@ -15,6 +15,13 @@ const capabilities = [
   "Founder & stakeholder collaboration",
 ];
 
+const marqueeItems = [
+  "Product thinking",
+  "UX systems",
+  "Thoughtful interfaces",
+  "Product delivery",
+];
+
 export default function Home() {
   return (
     <main>
@@ -55,20 +62,15 @@ export default function Home() {
 
       <div className="marquee" aria-hidden="true">
         <div className="marquee__track">
-          <span>
-            Product thinking · UX systems · Thoughtful interfaces · Product
-            delivery ·
-          </span>
-
-          <span>
-            Product thinking · UX systems · Thoughtful interfaces · Product
-            delivery ·
-          </span>
-
-          <span>
-            Product thinking · UX systems · Thoughtful interfaces · Product
-            delivery ·
-          </span>
+          {[0, 1].map((group) => (
+            <div className="marquee__group" key={group}>
+              {[...marqueeItems, ...marqueeItems, ...marqueeItems].map(
+                (item, index) => (
+                  <span key={`${group}-${index}`}>{item}</span>
+                ),
+              )}
+            </div>
+          ))}
         </div>
       </div>
 
