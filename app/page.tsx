@@ -210,7 +210,31 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              bemnetseifu@gmail.com <span>&nearr;</span>
+              <svg
+                className="contact-icon contact-icon--gmail"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill="#4285F4"
+                  d="M3.5 18.5h3.2V10l-3.2-2.4v10.9Z"
+                />
+                <path
+                  fill="#34A853"
+                  d="M17.3 18.5h3.2V7.6L17.3 10v8.5Z"
+                />
+                <path
+                  fill="#EA4335"
+                  d="M3.5 7.6v-.8c0-1.5 1.7-2.3 2.9-1.4L12 9.6l5.6-4.2c1.2-.9 2.9-.1 2.9 1.4v.8L12 14 3.5 7.6Z"
+                />
+                <path
+                  fill="#FBBC04"
+                  d="M3.5 7.6 6.7 10v8.5H5.1c-.9 0-1.6-.7-1.6-1.6V7.6Z"
+                  opacity=".35"
+                />
+              </svg>
+
+              <span>bemnetseifu@gmail.com</span>
             </a>
 
             <a
@@ -218,7 +242,27 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn <span>&nearr;</span>
+              <svg
+                className="contact-icon contact-icon--linkedin"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <rect
+                  x="2"
+                  y="2"
+                  width="20"
+                  height="20"
+                  rx="3"
+                  fill="#0A66C2"
+                />
+
+                <path
+                  fill="#ffffff"
+                  d="M7.2 9.5H4.9V19h2.3V9.5Zm.2-3a1.35 1.35 0 1 0-2.7 0 1.35 1.35 0 0 0 2.7 0ZM11 9.5H8.8V19H11v-4.7c0-1.25.24-2.46 1.79-2.46 1.53 0 1.55 1.43 1.55 2.54V19h2.29v-5.2c0-2.55-.55-4.51-3.52-4.51-1.43 0-2.38.78-2.77 1.52H11V9.5Z"
+                />
+              </svg>
+
+              <span>LinkedIn</span>
             </a>
           </div>
         </div>

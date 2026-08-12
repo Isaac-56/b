@@ -1,6 +1,5 @@
 import { cleanText } from "@/lib/clean-text";
 import Image from "next/image";
-import Link from "next/link";
 import { Project } from "@/lib/projects";
 import { Reveal } from "./reveal";
 
@@ -16,7 +15,7 @@ export function ProjectCard({
       as="article"
       className={`project-card ${reverse ? "is-reverse" : ""}`}
     >
-      <Link
+      <a
         href={`/work/${project.slug}`}
         className="project-card__link"
         aria-label={`View ${cleanText(project.title)} case study`}
@@ -80,7 +79,7 @@ export function ProjectCard({
             />
           </div>
         </div>
-      </Link>
+      </a>
     </Reveal>
   );
 }

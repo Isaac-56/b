@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export function SiteHeader({ light = false }: { light?: boolean }) {
@@ -23,13 +22,13 @@ export function SiteHeader({ light = false }: { light?: boolean }) {
         light ? "site-header--light" : ""
       } ${scrolled ? "is-scrolled" : ""}`}
     >
-      <Link
+      <a
         href="/"
         className="monogram"
         aria-label="Bemnet Seifu home"
       >
         B
-      </Link>
+      </a>
 
       <button
         className="menu-button"
@@ -46,19 +45,13 @@ export function SiteHeader({ light = false }: { light?: boolean }) {
         className={open ? "is-open" : ""}
         aria-label="Main navigation"
       >
-        <Link
-          href="/#work"
-          onClick={() => setOpen(false)}
-        >
+        <a href="/#work" onClick={() => setOpen(false)}>
           Work
-        </Link>
+        </a>
 
-        <Link
-          href="/#about"
-          onClick={() => setOpen(false)}
-        >
+        <a href="/#about" onClick={() => setOpen(false)}>
           About
-        </Link>
+        </a>
 
         <a
           href="https://mail.google.com/mail/?view=cm&fs=1&to=bemnetseifu@gmail.com"

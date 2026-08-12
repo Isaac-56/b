@@ -1734,3 +1734,25 @@ button {
     transition: none;
   }
 }
+
+/* Contact brand icons */
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  display: block;
+}
+
+.contact-icon--gmail {
+  width: 22px;
+}
+
+.contact-icon--linkedin {
+  width: 20px;
+}
