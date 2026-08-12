@@ -40,3 +40,10 @@ yarn-error.log*
 /work/
 
 /build/
+
+.netlify/
+.backup-finalization/
+bemnet-seifu-portfolio-*.zip
+finalize-portfolio.ps1
+portfolio-visual-system.patch
+finalize-portfolio.ps1

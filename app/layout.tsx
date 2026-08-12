@@ -3,14 +3,18 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Bemnet Seifu — Product Designer",
-    template: "%s — Bemnet Seifu",
+    default: "Bemnet Seifu - Product Designer",
+    template: "%s - Bemnet Seifu",
   },
-  description: "Product designer working across UX, product strategy, delivery, and QA.",
-  metadataBase: new URL("https://bemnetseifu.com"),
+  description:
+    "Product designer working across UX, product strategy, delivery, and QA.",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
       <body>{children}</body>

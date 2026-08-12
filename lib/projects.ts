@@ -15,13 +15,20 @@ export type Project = {
   surface: string;
   hero: string;
   cards: string[];
-  gallery: { src: string; alt: string; layout?: "wide" | "tall"; position?: string }[];
+  gallery: {
+    src: string;
+    alt: string;
+    layout?: "wide" | "tall";
+    position?: string;
+  }[];
   figma?: string;
+  presentation?: "web" | "mobile";
 };
 
 export const projects: Project[] = [
   {
     slug: "tala-thrive",
+    presentation: "web",
     index: "01",
     title: "Tala Thrive",
     eyebrow: "Therapy platform · Web & mobile",
@@ -48,17 +55,39 @@ export const projects: Project[] = [
     hero: "/projects/tala-match.png",
     cards: ["/projects/tala-match.png", "/projects/tala-calls.png"],
     gallery: [
-      { src: "/projects/tala-auth.png", alt: "Tala Thrive authentication screens", layout: "wide" },
-      { src: "/projects/tala-match.png", alt: "Therapist matching and booking flow", layout: "wide" },
-      { src: "/projects/tala-calls.png", alt: "Appointments and video session screens", layout: "wide" },
-      { src: "/projects/tala-booking.png", alt: "Scheduling and payment flow", layout: "wide" },
-      { src: "/projects/tala-splash.png", alt: "Tala Thrive loading and splash screens", layout: "wide" },
+      {
+        src: "/projects/tala-auth.png",
+        alt: "Tala Thrive authentication screens",
+        layout: "wide",
+      },
+      {
+        src: "/projects/tala-match.png",
+        alt: "Therapist matching and booking flow",
+        layout: "wide",
+      },
+      {
+        src: "/projects/tala-calls.png",
+        alt: "Appointments and video session screens",
+        layout: "wide",
+      },
+      {
+        src: "/projects/tala-booking.png",
+        alt: "Scheduling and payment flow",
+        layout: "wide",
+      },
+      {
+        src: "/projects/tala-splash.png",
+        alt: "Tala Thrive loading and splash screens",
+        layout: "wide",
+      },
     ],
     figma:
-      "https://www.figma.com/design/w2mIoVYHwaaLGSrcEjsEO7/Tala-Thrive-design-kit?node-id=17-543&p=f&t=QY29ZRS6ubsx9Wrk-0",
+      "https://www.figma.com/design/w2mIoVYHwaaLGSrcEjsEO7/Tala-Thrive-design-kit?node-id=17-543&p=f&t=92s86c9BposksNO6-0",
   },
+
   {
     slug: "uma-box",
+    presentation: "web",
     index: "02",
     title: "UMA Box",
     eyebrow: "Therapy platform · Product delivery",
@@ -86,15 +115,40 @@ export const projects: Project[] = [
     hero: "/projects/uma-video.png",
     cards: ["/projects/uma-video.png", "/projects/uma-admin.png"],
     gallery: [
-      { src: "/projects/uma-video.png", alt: "UMA Box video meeting experience", layout: "wide" },
-      { src: "/projects/uma-admin.png", alt: "UMA Box admin dashboard", layout: "wide" },
-      { src: "/projects/uma-onboarding.png", alt: "Therapist onboarding flows", layout: "wide" },
-      { src: "/projects/uma-client-mobile.png", alt: "Responsive client experience", layout: "wide" },
-      { src: "/projects/uma-landing.png", alt: "UMA Box redesigned website", layout: "tall", position: "top" },
+      {
+        src: "/projects/uma-video.png",
+        alt: "UMA Box video meeting experience",
+        layout: "wide",
+      },
+      {
+        src: "/projects/uma-admin.png",
+        alt: "UMA Box admin dashboard",
+        layout: "wide",
+      },
+      {
+        src: "/projects/uma-onboarding.png",
+        alt: "Therapist onboarding flows",
+        layout: "wide",
+      },
+      {
+        src: "/projects/uma-client-mobile.png",
+        alt: "Responsive client experience",
+        layout: "wide",
+      },
+      {
+        src: "/projects/uma-landing.png",
+        alt: "UMA Box redesigned website",
+        layout: "tall",
+        position: "top",
+      },
     ],
+    figma:
+      "https://www.figma.com/design/mv1k2dG8MEqAMd2qUvh7N8/UMA-Box?node-id=53-915&t=q6lDkH5ZF5MdCtaJ-0",
   },
+
   {
     slug: "givethanks",
+    presentation: "mobile",
     index: "03",
     title: "GiveThanks",
     eyebrow: "Community app · Mobile product",
@@ -120,17 +174,46 @@ export const projects: Project[] = [
     accent: "#7564f5",
     surface: "#ebe9ff",
     hero: "/projects/givethanks-feed.png",
-    cards: ["/projects/givethanks-home.png", "/projects/givethanks-voice.png"],
-    gallery: [
-      { src: "/projects/givethanks-feed.png", alt: "GiveThanks community feed", layout: "tall", position: "top" },
-      { src: "/projects/givethanks-voice.png", alt: "Voice affirmation experience", layout: "wide" },
-      { src: "/projects/givethanks-groups.png", alt: "Community groups and leader tools", layout: "wide" },
-      { src: "/projects/givethanks-journal.png", alt: "Personal journal experience", layout: "wide" },
-      { src: "/projects/givethanks-home.png", alt: "GiveThanks mobile home", layout: "tall", position: "top" },
+    cards: [
+      "/projects/givethanks-home.png",
+      "/projects/givethanks-voice.png",
     ],
+    gallery: [
+      {
+        src: "/projects/givethanks-feed.png",
+        alt: "GiveThanks community feed",
+        layout: "tall",
+        position: "top",
+      },
+      {
+        src: "/projects/givethanks-voice.png",
+        alt: "Voice affirmation experience",
+        layout: "wide",
+      },
+      {
+        src: "/projects/givethanks-groups.png",
+        alt: "Community groups and leader tools",
+        layout: "wide",
+      },
+      {
+        src: "/projects/givethanks-journal.png",
+        alt: "Personal journal experience",
+        layout: "wide",
+      },
+      {
+        src: "/projects/givethanks-home.png",
+        alt: "GiveThanks mobile home",
+        layout: "tall",
+        position: "top",
+      },
+    ],
+    figma:
+      "https://www.figma.com/design/NDjI8hTF831DiSZuXKLYiV/Give-Thanks?node-id=2-3&t=nr0Lc0nRo6bpemmY-0",
   },
+
   {
     slug: "ticklish",
+    presentation: "web",
     index: "04",
     title: "Ticklish",
     eyebrow: "C2C marketplace · Responsive web",
@@ -156,14 +239,42 @@ export const projects: Project[] = [
     accent: "#0878ff",
     surface: "#e2efff",
     hero: "/projects/ticklish-listings.png",
-    cards: ["/projects/ticklish-listings.png", "/projects/ticklish-buyer.png"],
-    gallery: [
-      { src: "/projects/ticklish-listings.png", alt: "Ticklish listing management", layout: "tall", position: "top" },
-      { src: "/projects/ticklish-buyer.png", alt: "Ticklish buyer journey", layout: "tall", position: "top" },
-      { src: "/projects/ticklish-offers.png", alt: "Offer management across desktop", layout: "wide" },
-      { src: "/projects/ticklish-detail.png", alt: "Ticket detail and purchase experience", layout: "wide" },
-      { src: "/projects/ticklish-editor.png", alt: "Create and edit a ticket listing", layout: "tall", position: "top" },
+    cards: [
+      "/projects/ticklish-listings.png",
+      "/projects/ticklish-buyer.png",
     ],
+    gallery: [
+      {
+        src: "/projects/ticklish-listings.png",
+        alt: "Ticklish listing management",
+        layout: "tall",
+        position: "top",
+      },
+      {
+        src: "/projects/ticklish-buyer.png",
+        alt: "Ticklish buyer journey",
+        layout: "tall",
+        position: "top",
+      },
+      {
+        src: "/projects/ticklish-offers.png",
+        alt: "Offer management across desktop",
+        layout: "wide",
+      },
+      {
+        src: "/projects/ticklish-detail.png",
+        alt: "Ticket detail and purchase experience",
+        layout: "wide",
+      },
+      {
+        src: "/projects/ticklish-editor.png",
+        alt: "Create and edit a ticket listing",
+        layout: "tall",
+        position: "top",
+      },
+    ],
+    figma:
+      "https://www.figma.com/design/9HjUd934rs9vrrcjo1Blsk/TICKLISH?node-id=44-11&t=vcnlBoPwx5oV51LE-0",
   },
 ];
 
