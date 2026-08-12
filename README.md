@@ -1,4 +1,4 @@
-# Bemnet Seifu â€” Product Design Portfolio
+# Bemnet Seifu ” Product Design Portfolio
 
 A responsive product-design portfolio built with React, vinext, Vite, and Tailwind CSS.
 
@@ -25,10 +25,10 @@ npm run build
 
 ## Project structure
 
-- `app/` â€” routes and global visual system
-- `components/` â€” portfolio UI and case-study components
-- `lib/projects.ts` â€” project content and presentation metadata
-- `public/projects/` â€” curated case-study imagery
+- `app/` routes and global visual system
+- `components/` portfolio UI and case-study components
+- `lib/projects.ts` project content and presentation metadata
+- `public/projects/` curated case-study imagery
 
 ## Notes
 
