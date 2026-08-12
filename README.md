@@ -1,4 +1,4 @@
-# Bemnet Seifu ” Product Design Portfolio
+# Bemnet Seifu Product Design Portfolio
 
 A responsive product-design portfolio built with React, vinext, Vite, and Tailwind CSS.
 
@@ -6,7 +6,7 @@ A responsive product-design portfolio built with React, vinext, Vite, and Tailwi
 
 - Tala Thrive
 - UMA Box
-- GiveThanks
+- GiveThanksS
 - Ticklish
 
 ## Local development
