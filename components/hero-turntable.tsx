@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
+const AUDIO_SRC = "/audio/leberch-jazz-piano-578722.mp3";
+
 export function HeroTurntable() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isActive, setIsActive] = useState(false);
@@ -15,66 +17,57 @@ export function HeroTurntable() {
     audio.loop = true;
     audio.preload = "auto";
 
-    /*
-     * Browsers may block audio before the visitor has interacted
-     * with the page. A first interaction anywhere on the page
-     * prepares the audio so later mouse hover can play it.
-     */
-    const unlockAudio = async () => {
-      try {
-        const oldVolume = audio.volume;
+    // Start loading the audio immediately when the page mounts.
+    audio.load();
 
-        audio.volume = 0;
-        await audio.play();
-        audio.pause();
-        audio.currentTime = 0;
-        audio.volume = oldVolume;
-      } catch {
-        // Browser may still enforce its own autoplay policy.
-      }
-    };
-
-    window.addEventListener("pointerdown", unlockAudio, {
-      once: true,
+    // Warm the browser cache as early as possible.
+    fetch(AUDIO_SRC, {
+      method: "GET",
+      cache: "force-cache",
+    }).catch(() => {
+      // The audio element can still load normally if prefetch fails.
     });
-
-    window.addEventListener("keydown", unlockAudio, {
-      once: true,
-    });
-
-    return () => {
-      window.removeEventListener("pointerdown", unlockAudio);
-      window.removeEventListener("keydown", unlockAudio);
-    };
   }, []);
 
   const handleMouseEnter = async () => {
-    setIsActive(true);
-
     const audio = audioRef.current;
+
+    setIsActive(true);
 
     if (!audio) return;
 
     try {
-      audio.currentTime = 0;
+      if (audio.readyState < 2) {
+        audio.load();
+      }
+
+      if (audio.currentTime > 0.05) {
+        audio.currentTime = 0;
+      }
+
       await audio.play();
     } catch {
       /*
-       * The record animation still starts on hover even if
-       * the browser blocks first-hover audio.
+       * Some browsers can still restrict unmuted audio
+       * until the visitor has interacted with the page.
        */
     }
   };
 
   const handleMouseLeave = () => {
-    setIsActive(false);
-
     const audio = audioRef.current;
+
+    setIsActive(false);
 
     if (!audio) return;
 
     audio.pause();
-    audio.currentTime = 0;
+
+    try {
+      audio.currentTime = 0;
+    } catch {
+      // Ignore if metadata has not finished loading yet.
+    }
   };
 
   return (
@@ -86,7 +79,7 @@ export function HeroTurntable() {
     >
       <audio
         ref={audioRef}
-        src="/audio/leberch-jazz-piano-578722.mp3"
+        src={AUDIO_SRC}
         preload="auto"
       />
 

@@ -17,6 +17,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          href="/audio/leberch-jazz-piano-578722.mp3"
+          as="audio"
+          type="audio/mpeg"
+        />
+      </head>
+
       <body>{children}</body>
     </html>
   );
